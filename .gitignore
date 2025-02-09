@@ -1,11 +1,26 @@
-*.ts
-dist
-!index.ts
-!character.ts
-.env
-node_modules
-dist/
+# Dependencies
+node_modules/
 
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+
+# Session data and runtime files
+/data/
+/temp/
+*.session.json
+
+# Large model files
+*.gguf
+/model/
+
+# OS files
+.DS_Store
+
+# Database files
 db.sqlite
-.idea
-.tee-cloud
+.idea/
+.tee-clouddata/
