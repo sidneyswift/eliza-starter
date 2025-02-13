@@ -1,5 +1,6 @@
 import { AutoClientInterface } from "@elizaos/client-auto";
 import { DiscordClientInterface } from "@elizaos/client-discord";
+import { InstagramClientInterface } from "@elizaos/client-instagram";
 import { TelegramClientInterface } from "@elizaos/client-telegram";
 import { TwitterClientInterface } from "@elizaos/client-twitter";
 import { Character, IAgentRuntime } from "@elizaos/core";
@@ -28,6 +29,11 @@ export async function initializeClients(
   if (clientTypes.includes("twitter")) {
     const twitterClients = await TwitterClientInterface.start(runtime);
     clients.push(twitterClients);
+  }
+
+  if (clientTypes.includes("instagram")) {
+    const instagramClient = await InstagramClientInterface.start(runtime);
+    if (instagramClient) clients.push(instagramClient);
   }
 
   if (character.plugins?.length > 0) {
